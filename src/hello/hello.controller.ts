@@ -10,7 +10,7 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { query, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { ValidateuserPipe } from './pipes/validateuser/validateuser.pipe';
 import { AuthGuard } from './guards/auth/auth.guard';
 

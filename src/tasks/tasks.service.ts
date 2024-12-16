@@ -42,6 +42,7 @@ export class TasksService {
   }
 
   updateTask(task: UpdateTaskDto) {
+    console.log(task);
     return 'Task updated';
   }
 
