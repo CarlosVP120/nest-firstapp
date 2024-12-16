@@ -1,4 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
 
 export interface Task {
   name: string;
@@ -16,18 +18,30 @@ export class TasksService {
     return this.tasks;
   }
 
-  createTask(task: any) {
+  getTask(id: number) {
+    // Buscar en BD
+    // Otras funciones
+    const taskFound = this.tasks.find((task) => task.id === id);
+    if (!taskFound) {
+      // Throw 404 error
+      return new NotFoundException(`Task with id ${id} not found`);
+    }
+    return taskFound;
+  }
+
+  createTask(task: CreateTaskDto) {
     // Crear en BD
     // Otras funciones
     console.log(task);
-    this.tasks.push(task);
+    this.tasks.push({
+      ...task,
+      id: this.tasks.length + 1,
+    });
+
     return task;
   }
 
-  updateTask() {
-    // Actualizar en BD
-    // Otras funciones
-
+  updateTask(task: UpdateTaskDto) {
     return 'Task updated';
   }
 
