@@ -5,8 +5,8 @@ import { AuthGuard } from './auth.guard';
 import { NATS_SERVICE } from '../config';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { catchError } from 'rxjs';
-import { User } from './decorators/user.decorator';
-import { Token } from './decorators/token.decorator';
+import { User } from '../common/decorators/user.decorator';
+import { Token } from '../common/decorators/token.decorator';
 import { User as IUser } from './entities/auth.entity';
 
 @Controller('auth')
