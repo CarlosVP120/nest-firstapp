@@ -1,0 +1,15 @@
+services:
+  auth-ms-db:
+    container_name: auth-ms
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_DB=auth
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Sist3mas
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - '5555:5432'
+
+volumes:
+  postgres:
